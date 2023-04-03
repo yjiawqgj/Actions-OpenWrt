@@ -12,5 +12,5 @@
 
 # Modify default IP
 sed -i 's/10.10.10.14/192.168.1.1/g' package/base-files/files/bin/config_generate
-git clone https://github.com/kenzok8/small-package package/small-package
+# git clone https://github.com/kenzok8/small-package package/small-package
 git clone https://github.com/sirpdboy/sirpdboy-package package/sirpdboy-package
