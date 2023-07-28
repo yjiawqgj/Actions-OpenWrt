@@ -14,7 +14,7 @@
 sed -i 's/10.10.10.3/192.168.1.1/g' package/base-files/files/bin/config_generate
 # git clone https://github.com/kenzok8/small-package package/small-package
 git clone https://github.com/sirpdboy/sirpdboy-package package/sirpdboy-package
-git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+# git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 # openclash
 mkdir package/others/openclash
 cd package/others/openclash
