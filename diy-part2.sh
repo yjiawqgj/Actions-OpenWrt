@@ -14,3 +14,4 @@
 sed -i 's/192.168.1.1/10.10.10.4/g' package/base-files/files/bin/config_generate
 git clone https://github.com/kenzok8/openwrt-packages package/kenzok8/openwrt-packages
 git clone https://github.com/yjiawqgj/luci-app-netmap package/luci-app-netmap
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
