@@ -9,7 +9,7 @@
 # See /LICENSE for more information.
 #
 
-name: OpenWrt
+name: OpenWrt 
 
 on:
   repository_dispatch:
@@ -92,22 +92,23 @@ jobs:
         make download -j8
         find dl -size -2048c -exec rm -f {} \;  # 清理小于2KB的文件
         rm -rf dl/*  # 清理下载目录
-       
+        df -hT
 
     - name: Clean up before compile
       run: |
         cd openwrt
-        rm -rf build_dir staging_dir
+        rm -rf build_dir staging_dir tmp
         ccache -M 1G  # 限制ccache缓存大小为1GB
         sudo rm -rf /home/runner/runners/2.323.0/_diag/*  # 使用 -rf 递归删除
         df -hT
 
     - name: Compile toolchain
       id: toolchain
+      timeout-minutes: 60  # 设置60分钟超时
       run: |
         cd openwrt
         echo -e "$(nproc) thread toolchain compile"
-        make -j$(nproc) tools/install toolchain/install V=0 || make -j1 tools/install toolchain/install V=s
+        make -j$(nproc) tools/install toolchain/install V=s || make -j1 tools/install toolchain/install V=s
         echo "status=success" >> $GITHUB_OUTPUT
         df -hT
 
