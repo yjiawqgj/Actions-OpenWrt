@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: Op Builder
+name: 6000
 
 on:
   repository_dispatch:
